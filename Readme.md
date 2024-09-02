@@ -64,6 +64,37 @@ Before you begin, ensure you have the following:
 ![In seetings tab, select **"Disks"**, click on **"Create and Attachne Disk"** and configure the disk settings](/media/ss-11.PNG)
 **In seetings tab, select **"Disks"**, click on **"Create and Attachne Disk"** and configure the disk settings**
 
+### Step 6: Install and Run a Docker Container
+1. **Install Docker**:
+   - SSH into your VM.
+   - Run the following commands to install Docker:
+     ```sh
+     sudo apt-get update
+     sudo apt-get install -y docker.io
+     ```
+    ![Installing Docker](/media/ss-12.PNG)
+
+2. **Start Docker Service**:
+   - Start the Docker service and enable it to start on boot:
+     ```sh
+     sudo systemctl start docker
+     sudo systemctl enable docker
+     ```
+     ![starting docker](/media/ss-13.PNG)
+     ![](/media/ss-14.PNG)
+     ![](/media/ss-15.PNG)
+
+3. **Pull a Docker Image**:
+   - Pull a Docker image from Docker Hub, for example, Nginx:
+     ```sh
+     sudo docker pull nginx
+     ```
+     
+4. **Run a Docker Container**:
+   - Run a Docker container using the pulled image:
+     ```sh
+     sudo docker run -d -p 80:80 nginx
+     
 
 ## Conclusion
 You have successfully created a VM instance in Azure and attached additional storage to it. You can now use this VM for your applications and workloads.
